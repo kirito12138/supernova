@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mouseDrag : MonoBehaviour
 {
+
     //private bool isMouseDown = false;
     //==========================用于drag=====================================
     private Vector3 lastMousePosition = Vector3.zero;
@@ -68,7 +69,7 @@ public class mouseDrag : MonoBehaviour
             {
                 Vector2 boxPst = new Vector2(item.transform.position.x, item.transform.position.y);
                 Vector2 crtPst = new Vector2(this.transform.position.x, this.transform.position.y);
-                if (Vector2.Distance(boxPst, crtPst) <= attachDst)
+                if (Vector2.Distance(boxPst, crtPst) <= attachDst && item.GetComponent<boxScript>().ifOccupied == false)
                 {
                     toMove2(item, false);
                     inBox = true;
