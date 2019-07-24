@@ -6,6 +6,8 @@ TagManager:
   tags:
   - EmptyBox
   - PuzzlePiece
+  - Depart
+  - Destination
   layers:
   - Default
   - TransparentFX

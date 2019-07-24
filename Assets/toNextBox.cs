@@ -2,26 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pipline : MonoBehaviour
+public class toNextBox : MonoBehaviour
 {
-    public GameObject[] entrance = new GameObject[7];
-    private bool running;
-    
-
+    public GameObject nextPoint;
+    public int nextEntrNum;
     // Start is called before the first frame update
     void Start()
     {
-        running = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void runPiece(int entranceNum)
-    {
-
     }
 }

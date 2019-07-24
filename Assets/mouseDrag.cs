@@ -19,13 +19,13 @@ public class mouseDrag : MonoBehaviour
     private float beginTime;
     public float smoothTime = 0.08f;
     public float attachDst = 1.0f;
-    private GameObject crtBox = null;
+    public GameObject crtBox = null;
     private Vector3 moveDst;
     private Vector3 crtPosition;
     private Vector3 direction;
     private GameObject[] boxes = new GameObject[6];
 
-    
+    public GameObject[] entrance = new GameObject[7];
 
     enum states
     {
@@ -51,17 +51,7 @@ public class mouseDrag : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
-
-            if (hit!=null && hit.collider.gameObject == this.gameObject)
-            {
-                toDrag(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            }
-
-        }
+        
         if (state == states.drag && Input.GetMouseButtonUp(0))
         {
             bool inBox = false;
@@ -117,13 +107,13 @@ public class mouseDrag : MonoBehaviour
 
     private void toIdle()
     {
-        print("to state Idle");
+        //print("to state Idle");
         state = states.idle;
     }
 
-    private void toDrag(Vector3 mPst)
+    public void toDrag(Vector3 mPst)
     {
-        print("to state Drag");
+        //print("to state Drag");
         mp = mPst;
         lastMousePosition = mPst;
         state = states.drag;
@@ -133,7 +123,7 @@ public class mouseDrag : MonoBehaviour
 
     private void toBack()
     {
-        print("to state Back");
+        //print("to state Back");
         state = states.back;
         moveDst = orgPosition;
         
@@ -148,14 +138,14 @@ public class mouseDrag : MonoBehaviour
 
     private void toReset()      //只负责清楚自身状态并回到等待区，不负责box状态更改。
     {
-        print("to state Reset");
+        //print("to state Reset");
         crtBox = null;
         moveDst = orgPosition;
     }
 
     private void toMove2(GameObject dst,bool ifSwap)    //ifSwap:是否为被动交换位置
     {
-        print("to state Move2");
+        //print("to state Move2");
         moveDst = dst.transform.position;
         moveDst.z = 0;
         state = states.move2;
@@ -173,6 +163,7 @@ public class mouseDrag : MonoBehaviour
         }
         crtBox = dst;
         dst.GetComponent<boxScript>().crtPiece = this.gameObject;
+        //print(crtBox.name);
     }
     private void MoveCube()
     {

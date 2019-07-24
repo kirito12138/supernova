@@ -6,6 +6,7 @@ public class boxScript : MonoBehaviour
 {
     public bool ifOccupied = false;
     public GameObject crtPiece = null;
+    public GameObject nextBox;
     // Start is called before the first frame update
     void Start()
     {
