@@ -8,6 +8,7 @@ TagManager:
   - PuzzlePiece
   - Depart
   - Destination
+  - ZoomIn
   layers:
   - Default
   - TransparentFX

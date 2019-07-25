@@ -80,6 +80,7 @@ public class character : MonoBehaviour
             }
         }
         crtDes = crtBox.GetComponent<boxScript>().crtPiece.GetComponent<mouseDrag>().entrance[1];
+        print(crtDes.name);
         state = states.run;
     }
 }

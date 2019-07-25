@@ -17,10 +17,18 @@ public class mouseClick : MonoBehaviour
         {
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity);
-
-            if (hit.collider != null && hit.collider.gameObject.tag == "PuzzlePiece")
+            if (hit.collider == null)
+            {
+                return;
+            }
+            if (hit.collider.gameObject.tag == "PuzzlePiece")
             {
                 hit.collider.GetComponent<mouseDrag>().toDrag(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+            if (hit.collider.gameObject.tag == "ZoomIn")
+            {
+                print("click zoom");
+                hit.collider.GetComponent<zoomIn>().ZoomIn();
             }
 
         }

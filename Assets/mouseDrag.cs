@@ -20,12 +20,13 @@ public class mouseDrag : MonoBehaviour
     public float smoothTime = 0.08f;
     public float attachDst = 1.0f;
     public GameObject crtBox = null;
+    
     private Vector3 moveDst;
     private Vector3 crtPosition;
     private Vector3 direction;
     private GameObject[] boxes = new GameObject[6];
 
-    public GameObject[] entrance = new GameObject[7];
+    public GameObject[] entrance = new GameObject[8];
 
     enum states
     {
@@ -235,4 +236,6 @@ public class mouseDrag : MonoBehaviour
         return true;
 
     }
+
+    
 }
