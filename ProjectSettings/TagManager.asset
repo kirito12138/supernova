@@ -9,6 +9,12 @@ TagManager:
   - Depart
   - Destination
   - ZoomIn
+  - Ladder
+  - Trick
+  - LocalTeleport
+  - GlobalTeleport
+  - Death
+  - End
   layers:
   - Default
   - TransparentFX

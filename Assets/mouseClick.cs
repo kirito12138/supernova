@@ -25,10 +25,10 @@ public class mouseClick : MonoBehaviour
             {
                 hit.collider.GetComponent<mouseDrag>().toDrag(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
-            if (hit.collider.gameObject.tag == "ZoomIn")
+            if (hit.collider.gameObject.tag == "Trick")
             {
-                print("click zoom");
-                hit.collider.GetComponent<zoomIn>().ZoomIn();
+                print("click trick!");
+                hit.collider.GetComponent<Trick>().Clicked();
             }
 
         }

@@ -34,17 +34,17 @@ public class zoomIn : MonoBehaviour
         
         for (int i=0;i< transform.parent.gameObject.GetComponent<mouseDrag>().entrance.Length;i++)
         {
-            if (transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i] == null)
+            if (transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i] == null && candidateEntrance[i] == null)
             {
                 continue;
             }
-            string s = transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i].name +"   " + candidateEntrance[i].name;
-            print(s);
+            //string s = transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i].name +"   " + candidateEntrance[i].name;
+            //print(s);
             GameObject temp = transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i];
             transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i] = candidateEntrance[i];
             candidateEntrance[i] = temp;
-            s = transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i].name + "   " + candidateEntrance[i].name;
-            print(s);
+            //s = transform.parent.gameObject.GetComponent<mouseDrag>().entrance[i].name + "   " + candidateEntrance[i].name;
+            //print(s);
         }
 
     }
