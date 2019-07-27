@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4952677299174482486}
   - component: {fileID: 4952677299174482487}
   - component: {fileID: 2117949593029497499}
+  - component: {fileID: 7240745513837591719}
   m_Layer: 0
   m_Name: plus
   m_TagString: Trick
@@ -147,3 +148,25 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &7240745513837591719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952677299174482490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c27a3c7408eed843939f8c9662542cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  routes: []
+  candidateEntrance:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
