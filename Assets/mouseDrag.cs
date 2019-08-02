@@ -150,6 +150,11 @@ public class mouseDrag : MonoBehaviour
         moveDst = dst.transform.position;
         moveDst.z = 0;
         state = states.move2;
+        if (crtBox != null)
+        {
+            crtBox.GetComponent<boxScript>().crtPiece = null;
+        }
+        
         if (ifSwap==false && dst.GetComponent<boxScript>().crtPiece!=null)
         {
             if (crtBox == null)

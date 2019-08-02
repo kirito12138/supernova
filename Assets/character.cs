@@ -10,6 +10,8 @@ public class character : MonoBehaviour
     public float speed;
     public float ladderSpeed;
     public int beginEntrance;
+    public GameObject wasted;
+    public GameObject clear;
     private enum states
     {
         idle,
@@ -57,14 +59,23 @@ public class character : MonoBehaviour
                 }
                 else if (crtDes.tag == "End")
                 {
-                    print("Congratulations!");
+                    clear.SetActive(true);
+                    Invoke("LoadNextScene", 2f);
                     state = states.idle;
                 }
                 else if (crtDes.tag == "GlobalTeleport")
                 {
-                    GetComponent<Renderer>().enabled = false;
-                    state = states.idle;
+                    this.transform.position = new Vector3(1000, 1000, 1000);
+                    //GetComponent<Renderer>().enabled = false;
+                    //state = states.idle;
                     Invoke("GTeleport", 1f);
+                }
+                else if (crtDes.tag == "LocalTeleport")
+                {
+                    this.transform.position = new Vector3(1000, 1000, 1000);
+                    //GetComponent<Renderer>().enabled = false;
+                    //tate = states.idle;
+                    Invoke("LTeleport", 1f);
                 }
                 else
                 {
@@ -94,7 +105,16 @@ public class character : MonoBehaviour
         crtBox = crtBox.GetComponent<boxScript>().nextBox;
         crtDes = crtBox.GetComponent<boxScript>().crtPiece.GetComponent<mouseDrag>().entrance[crtDes.GetComponent<toNextBox>().nextEntrNum];
         this.transform.position = crtDes.transform.position;
-        this.gameObject.GetComponent<Renderer>().enabled = true;
+        //this.gameObject.GetComponent<Renderer>().enabled = true;
+        state = states.run;
+        return;
+    }
+
+    public void LTeleport()
+    {
+        crtDes = crtDes.GetComponent<route>().nextPoint;
+        this.transform.position = crtDes.transform.position;
+        //this.gameObject.GetComponent<Renderer>().enabled = true;
         state = states.run;
         return;
     }
@@ -119,6 +139,8 @@ public class character : MonoBehaviour
                 return;
             }
         }
+        int id = Animator.StringToHash("ifRun");
+        this.GetComponent<Animator>().SetBool(id, true);
         crtDes = crtBox.GetComponent<boxScript>().crtPiece.GetComponent<mouseDrag>().entrance[beginEntrance];
         print(crtDes.name);
         state = states.run;
@@ -126,9 +148,36 @@ public class character : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.tag == "Death")
         {
+            wasted.SetActive(true);
             state = states.die;
+        }
+        if (collision.gameObject.tag == "Fire")
+        {
+            wasted.SetActive(true);
+            state = states.die;
+            GameObject[] fire = GameObject.FindGameObjectsWithTag("FireOnPlayer");
+            foreach (GameObject item in fire)
+            {
+                
+                item.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+    }
+
+    public void LoadNextScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.buildIndex == 1)
+        {
+            return;
+        }
+        Scene nextScene = SceneManager.GetSceneByBuildIndex(scene.buildIndex + 1);
+        if (nextScene != null)
+        {
+            SceneManager.LoadScene(scene.buildIndex + 1);
         }
     }
 }
