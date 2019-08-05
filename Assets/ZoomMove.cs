@@ -132,6 +132,7 @@ public class ZoomMove : MonoBehaviour
 
     public void LargeTrick()
     {
+        this.GetComponent<SpriteRenderer>().flipX = !this.GetComponent<SpriteRenderer>().flipX;
         moveDir *= -1;
         curState = 0;
         ifTrick = true;

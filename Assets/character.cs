@@ -8,7 +8,7 @@ public class character : MonoBehaviour
     public GameObject crtBox;
     public GameObject crtDes;
     public float speed;
-    public float ladderSpeed;
+    public float dropSpeed;
     public int beginEntrance;
     public GameObject wasted;
     public GameObject clear;
@@ -39,9 +39,9 @@ public class character : MonoBehaviour
             Vector3 dir = crtDes.transform.position - this.transform.position;
             dir.z = 0;
             dir = Vector3.Normalize(dir);
-            if (crtDes.tag == "Ladder")
+            if (crtDes.tag == "Drop")
             {
-                transform.Translate(dir * ladderSpeed * Time.deltaTime, Space.World);
+                transform.Translate(dir * dropSpeed * Time.deltaTime, Space.World);
             }
             else
             {

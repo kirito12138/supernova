@@ -1257,6 +1257,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a35372566f345d5438bfcd3b328c517a,
         type: 3}
+    - target: {fileID: 4952677299174482485, guid: 399be7fbf77db494f9daf04657218792,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952677299174482485, guid: 399be7fbf77db494f9daf04657218792,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2117949593029497499, guid: 399be7fbf77db494f9daf04657218792,
         type: 3}
       propertyPath: doTrick.m_PersistentCalls.m_Calls.Array.size
@@ -3679,7 +3689,7 @@ PrefabInstance:
     - target: {fileID: 5842594913720856465, guid: 3f7d6da01a2539841a7c13bd6fab04ff,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5842594913720856465, guid: 3f7d6da01a2539841a7c13bd6fab04ff,
         type: 3}

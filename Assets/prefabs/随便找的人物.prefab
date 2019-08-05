@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 16
   m_Sprite: {fileID: 5970490633213111344, guid: 63b18e0b43aa5b346a3e510a5529dd53,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,8 +99,10 @@ MonoBehaviour:
   crtBox: {fileID: 0}
   crtDes: {fileID: 0}
   speed: 1
-  ladderSpeed: 0.5
+  dropSpeed: 0
   beginEntrance: 1
+  wasted: {fileID: 0}
+  clear: {fileID: 0}
 --- !u!50 &5842594913720856466
 Rigidbody2D:
   serializedVersion: 4
