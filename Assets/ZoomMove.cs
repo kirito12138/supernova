@@ -25,6 +25,7 @@ public class ZoomMove : MonoBehaviour
     private bool ifTrick;
     private bool ifReScale;
     private int curState;
+    public GameObject camera;
     void Start()
     {
         originPst = image.transform.position;
@@ -127,11 +128,16 @@ public class ZoomMove : MonoBehaviour
                 }
             }
             ifTrick = ifLarge || ifScale || ifReScale;
+            if (!ifTrick)
+            {
+                camera.GetComponentInParent<mouseClick>().enabled = true;
+            }
         }
     }
 
     public void LargeTrick()
     {
+        camera.GetComponentInParent<mouseClick>().enabled = false;
         this.GetComponent<SpriteRenderer>().flipX = !this.GetComponent<SpriteRenderer>().flipX;
         moveDir *= -1;
         curState = 0;

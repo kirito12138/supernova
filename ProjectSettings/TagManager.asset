@@ -18,6 +18,7 @@ TagManager:
   - Fire
   - FireOnPlayer
   - Drop
+  - Stone
   layers:
   - Default
   - TransparentFX

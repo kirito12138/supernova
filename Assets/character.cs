@@ -12,6 +12,7 @@ public class character : MonoBehaviour
     public int beginEntrance;
     public GameObject wasted;
     public GameObject clear;
+    public int begin = 0;
     private enum states
     {
         idle,
@@ -139,6 +140,7 @@ public class character : MonoBehaviour
                 return;
             }
         }
+        begin = 1;
         int id = Animator.StringToHash("ifRun");
         this.GetComponent<Animator>().SetBool(id, true);
         crtDes = crtBox.GetComponent<boxScript>().crtPiece.GetComponent<mouseDrag>().entrance[beginEntrance];
@@ -151,11 +153,15 @@ public class character : MonoBehaviour
         
         if (collision.gameObject.tag == "Death")
         {
+            int id = Animator.StringToHash("ifRun");
+            this.GetComponent<Animator>().SetBool(id, false);
             wasted.SetActive(true);
             state = states.die;
         }
         if (collision.gameObject.tag == "Fire")
         {
+            int id = Animator.StringToHash("ifRun");
+            this.GetComponent<Animator>().SetBool(id, false);
             wasted.SetActive(true);
             state = states.die;
             GameObject[] fire = GameObject.FindGameObjectsWithTag("FireOnPlayer");
@@ -170,10 +176,6 @@ public class character : MonoBehaviour
     public void LoadNextScene()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.buildIndex == 1)
-        {
-            return;
-        }
         Scene nextScene = SceneManager.GetSceneByBuildIndex(scene.buildIndex + 1);
         if (nextScene != null)
         {

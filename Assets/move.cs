@@ -14,9 +14,11 @@ public class move : MonoBehaviour
     private Vector3 z;
     private Vector3 z1;
     private bool ifBMove;
+    private GameObject MC;
     // Start is called before the first frame update
     void Start()
     {
+        MC = GameObject.Find("Main Camera");
         direction = 1;
         ifMove = false;
         ifBMove = false;
@@ -37,6 +39,7 @@ public class move : MonoBehaviour
                 background.transform.position = bgDst;
                 ifMove = false;
                 ifBMove = false;
+                MC.GetComponent<mouseClick>().enabled = true;
             }
 
         }
@@ -49,6 +52,7 @@ public class move : MonoBehaviour
 
     public void Move()
     {
+        MC.GetComponent<mouseClick>().enabled = false;
         this.GetComponent<SpriteRenderer>().flipX = !this.GetComponent<SpriteRenderer>().flipX;
         direction *= -1;
         moveDst = image.transform.position;

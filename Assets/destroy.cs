@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Trick : MonoBehaviour
+public class destroy : MonoBehaviour
 {
-    public UnityEvent doTrick;
+    public UnityEvent hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +17,14 @@ public class Trick : MonoBehaviour
     {
         
     }
-    
-    public void Clicked()
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject chara = GameObject.Find("随便找的人物");
-        if (chara.GetComponent<character>().begin != 1)
+        print(collision.tag);
+        if (collision.tag == "Stone")
         {
-            doTrick.Invoke();
+            hit.Invoke();
         }
-        
     }
 }

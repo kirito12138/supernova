@@ -19,11 +19,13 @@ public class largeTrick : MonoBehaviour
     private float distance;
     private Vector3 firstPst;
     private Vector3 offset;
+    private GameObject MC;
     //public GameObject background;
     //private Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
+        MC = GameObject.Find("Main Camera");
         originPst = image.transform.position;
         firstPst = originPst;
         print(originPst);
@@ -54,6 +56,7 @@ public class largeTrick : MonoBehaviour
             {
                 image.transform.position = moveDst;
                 ifLarge = false;
+                MC.GetComponent<mouseClick>().enabled = true;
             }
 
         }
@@ -74,6 +77,7 @@ public class largeTrick : MonoBehaviour
 
     public void LargeTrick()
     {
+        MC.GetComponent<mouseClick>().enabled = false;
         ifLarge = true;
         ifScale = true;
         if (this.GetComponentInParent<mouseDrag>().crtBox!=null)

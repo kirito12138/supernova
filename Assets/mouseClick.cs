@@ -26,6 +26,11 @@ public class mouseClick : MonoBehaviour
             SceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(SceneName);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("退出");
+            SceneManager.LoadScene(0);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             

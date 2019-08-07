@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class Trick : MonoBehaviour
+public class drop : MonoBehaviour
 {
-    public UnityEvent doTrick;
+    public GameObject concrete;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +16,12 @@ public class Trick : MonoBehaviour
     {
         
     }
-    
-    public void Clicked()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject chara = GameObject.Find("随便找的人物");
-        if (chara.GetComponent<character>().begin != 1)
+        print(collision.tag);
+        if (collision.name == "随便找的人物")
         {
-            doTrick.Invoke();
+            concrete.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
-        
     }
 }
