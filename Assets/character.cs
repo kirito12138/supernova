@@ -57,6 +57,7 @@ public class character : MonoBehaviour
                 if (crtDes.tag == "Destination")
                 {
                     crtDes = getNextBoxEntr();
+                    print(crtDes.name);
                 }
                 else if (crtDes.tag == "End")
                 {
@@ -67,16 +68,18 @@ public class character : MonoBehaviour
                 else if (crtDes.tag == "GlobalTeleport")
                 {
                     this.transform.position = new Vector3(1000, 1000, 1000);
+                    //Invoke("Wait2Dis", 1f);
                     //GetComponent<Renderer>().enabled = false;
                     //state = states.idle;
-                    Invoke("GTeleport", 1f);
+                    Invoke("GTeleport", 2f);
                 }
                 else if (crtDes.tag == "LocalTeleport")
                 {
+                    //Invoke("Wait2Dis", 1f);
                     this.transform.position = new Vector3(1000, 1000, 1000);
                     //GetComponent<Renderer>().enabled = false;
                     //tate = states.idle;
-                    Invoke("LTeleport", 1f);
+                    Invoke("LTeleport", 2f);
                 }
                 else
                 {
@@ -91,7 +94,10 @@ public class character : MonoBehaviour
   
         }
     }
-
+    public void Wait2Dis()
+    {
+        this.transform.position = new Vector3(1000, 1000, 1000);
+    }
     public void RloadScene()
     {
         string SceneName;

@@ -3202,7 +3202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e2d9d78da1fd9754a9880ce618f184b0,
+      objectReference: {fileID: 21300000, guid: 334f2fb8b043f1c44a79ddc2cbb35880,
         type: 3}
     - target: {fileID: 4052218173735763781, guid: 2132a800eea3de340a67c3a2e6c2368d,
         type: 3}
@@ -3237,7 +3237,7 @@ GameObject:
   - component: {fileID: 1869618788}
   m_Layer: 0
   m_Name: "\u7EC8\u70B9"
-  m_TagString: GlobalTeleport
+  m_TagString: Destination
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3363,8 +3363,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882883755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010000229, y: 0.099669576, z: 0}
-  m_LocalScale: {x: 0.644, y: 0.644, z: 0.644}
+  m_LocalPosition: {x: 0.010000229, y: -0.022, z: 0}
+  m_LocalScale: {x: 0.644, y: 0.709688, z: 0.644}
   m_Children: []
   m_Father: {fileID: 2018769625}
   m_RootOrder: 1
