@@ -30,6 +30,13 @@ public class character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.GetComponent<SpriteRenderer>().flipX == false)
+        {
+            if (crtBox.name == "空白框6")
+            {
+                this.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
         if (state == states.run)
         {
             if (crtDes == null)
@@ -71,7 +78,7 @@ public class character : MonoBehaviour
                     //Invoke("Wait2Dis", 1f);
                     //GetComponent<Renderer>().enabled = false;
                     //state = states.idle;
-                    Invoke("GTeleport", 2f);
+                    Invoke("GTeleport", 1.5f);
                 }
                 else if (crtDes.tag == "LocalTeleport")
                 {
@@ -79,7 +86,7 @@ public class character : MonoBehaviour
                     this.transform.position = new Vector3(1000, 1000, 1000);
                     //GetComponent<Renderer>().enabled = false;
                     //tate = states.idle;
-                    Invoke("LTeleport", 2f);
+                    Invoke("LTeleport", 1.5f);
                 }
                 else
                 {

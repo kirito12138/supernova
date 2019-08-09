@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    public GameObject l1,l2,l3;
+    public GameObject[] levels;
     public GameObject b1, b2, b3;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Screen.SetResolution(1600, 900, false);
     }
 
     // Update is called once per frame
@@ -30,9 +30,10 @@ public class menu : MonoBehaviour
                 b1.SetActive(false);
                 b2.SetActive(false);
                 b3.SetActive(false);
-                l1.SetActive(true);
-                l2.SetActive(true);
-                l3.SetActive(true);
+                foreach (GameObject l in levels)
+                {
+                    l.SetActive(true);
+                }
             }
             else if (hit.collider.gameObject.name == "退出")
             {

@@ -15,6 +15,7 @@ public class move : MonoBehaviour
     private Vector3 z1;
     private bool ifBMove;
     private GameObject MC;
+    public int curState;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class move : MonoBehaviour
         ifBMove = false;
         z = Vector3.zero;
         z1 = Vector3.zero;
+        curState = -1;
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class move : MonoBehaviour
                 ifMove = false;
                 ifBMove = false;
                 MC.GetComponent<mouseClick>().enabled = true;
+                curState *= -1;
             }
 
         }

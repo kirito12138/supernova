@@ -242,5 +242,10 @@ public class mouseDrag : MonoBehaviour
 
     }
 
+    public bool ifIdle()
+    {
+        return state == states.idle;
+    }
+
     
 }
