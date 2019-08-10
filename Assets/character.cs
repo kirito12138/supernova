@@ -59,7 +59,8 @@ public class character : MonoBehaviour
             Vector3 crtD = crtDes.transform.position;
             crtP.z = 0;
             crtD.z = 0;
-            if (Vector3.Distance(crtP, crtD)<0.01)
+            //print(Vector3.Distance(crtP, crtD));
+            if (Vector3.Distance(crtP, crtD)<0.03)
             {
                 if (crtDes.tag == "Destination")
                 {
@@ -129,6 +130,7 @@ public class character : MonoBehaviour
         crtDes = crtDes.GetComponent<route>().nextPoint;
         this.transform.position = crtDes.transform.position;
         //this.gameObject.GetComponent<Renderer>().enabled = true;
+        crtDes = crtDes.GetComponent<route>().nextPoint;
         state = states.run;
         return;
     }
@@ -164,14 +166,14 @@ public class character : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.tag == "Death")
+        if (collision.gameObject.tag == "Death" && begin == 1)
         {
             int id = Animator.StringToHash("ifRun");
             this.GetComponent<Animator>().SetBool(id, false);
             wasted.SetActive(true);
             state = states.die;
         }
-        if (collision.gameObject.tag == "Fire")
+        if (collision.gameObject.tag == "Fire" && begin == 1)
         {
             int id = Animator.StringToHash("ifRun");
             this.GetComponent<Animator>().SetBool(id, false);
@@ -188,10 +190,12 @@ public class character : MonoBehaviour
 
     public void LoadNextScene()
     {
+        PlayerPrefs.SetInt("title", 1);
         Scene scene = SceneManager.GetActiveScene();
         Scene nextScene = SceneManager.GetSceneByBuildIndex(scene.buildIndex + 1);
         if (nextScene != null)
         {
+
             SceneManager.LoadScene(scene.buildIndex + 1);
         }
     }

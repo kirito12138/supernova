@@ -10,6 +10,7 @@ public class menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("title", 1);
         Screen.SetResolution(1600, 900, false);
     }
 

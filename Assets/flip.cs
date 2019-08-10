@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class flip : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class flip : MonoBehaviour
     public GameObject image;
     private float target;
     private GameObject MC;
+    public bool fliped;
+    public UnityEvent changeBar;
     void Start()
     {
+        fliped = false;
         MC = GameObject.Find("Main Camera");
         ifFlip = false;
         target = 0;
@@ -32,6 +36,8 @@ public class flip : MonoBehaviour
                 ifFlip = false;
                 image.GetComponent<Transform>().localEulerAngles = new Vector3(0.0f, 180f*target, 0.0f);
                 MC.GetComponent<mouseClick>().enabled = true;
+                fliped = !fliped;
+                changeBar.Invoke();
                 //image.GetComponent<Transform>().Rotate(0f, 180*target- image.GetComponent<Transform>().rotation.y*180, 0f);
             }
             

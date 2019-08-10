@@ -22,6 +22,7 @@ public class mouseClick : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            PlayerPrefs.SetInt("title", 0);
             string SceneName;
             SceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(SceneName);
