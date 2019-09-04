@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class menu : MonoBehaviour
 {
     public GameObject[] levels;
-    public GameObject b1, b2, b3;
+    public GameObject[] others;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +28,10 @@ public class menu : MonoBehaviour
             }
             else if (hit.collider.gameObject.name == "选择关卡")
             {
-                b1.SetActive(false);
-                b2.SetActive(false);
-                b3.SetActive(false);
+                foreach (GameObject o in others)
+                {
+                    o.SetActive(false);
+                }
                 foreach (GameObject l in levels)
                 {
                     l.SetActive(true);

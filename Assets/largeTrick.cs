@@ -17,14 +17,19 @@ public class largeTrick : MonoBehaviour
     private bool ifScale;
     public float moveTime;
     private float distance;
+    public GameObject minus;
     private Vector3 firstPst;
     private Vector3 offset;
     private GameObject MC;
+    private bool iconState;
+    public bool ifChangeIcon;
+    
     //public GameObject background;
     //private Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
+        iconState = true;
         MC = GameObject.Find("Main Camera");
         originPst = image.transform.position;
         firstPst = originPst;
@@ -77,6 +82,14 @@ public class largeTrick : MonoBehaviour
 
     public void LargeTrick()
     {
+        if (ifChangeIcon)
+        {
+            print(this.name);
+            this.GetComponent<SpriteRenderer>().enabled = !iconState;
+            minus.SetActive(iconState);
+            iconState = !iconState;
+        }
+        
         MC.GetComponent<mouseClick>().enabled = false;
         ifLarge = true;
         ifScale = true;

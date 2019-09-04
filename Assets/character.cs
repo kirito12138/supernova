@@ -98,6 +98,7 @@ public class character : MonoBehaviour
         }
         else if (state == states.die)
         {
+            
             Invoke("RloadScene", 3f);
   
         }
@@ -109,6 +110,10 @@ public class character : MonoBehaviour
     public void RloadScene()
     {
         string SceneName;
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            timer.reloadCount += 1;
+        }
         SceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(SceneName);
         return;
@@ -148,6 +153,7 @@ public class character : MonoBehaviour
     public void toRun()
     {
         GameObject[] pieces = GameObject.FindGameObjectsWithTag("PuzzlePiece");
+        
         foreach (GameObject item in pieces)
         {
             if (item.GetComponent<mouseDrag>().crtBox == null)
@@ -156,6 +162,7 @@ public class character : MonoBehaviour
             }
         }
         begin = 1;
+        GameObject.Find("Main Camera").GetComponent<mouseClick>().ifClick = false;
         int id = Animator.StringToHash("ifRun");
         this.GetComponent<Animator>().SetBool(id, true);
         crtDes = crtBox.GetComponent<boxScript>().crtPiece.GetComponent<mouseDrag>().entrance[beginEntrance];
@@ -192,6 +199,12 @@ public class character : MonoBehaviour
     {
         PlayerPrefs.SetInt("title", 1);
         Scene scene = SceneManager.GetActiveScene();
+        if (scene.buildIndex == 3)
+        {
+            ddol.IsHaveUsed = false;
+            timer.reloadCount = 0;
+            timer.t = 0;
+        }
         Scene nextScene = SceneManager.GetSceneByBuildIndex(scene.buildIndex + 1);
         if (nextScene != null)
         {
